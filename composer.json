@@ -1,0 +1,13 @@
+{
+    "name": "rkozlov95/php-brain-games",
+    "bin": ["bin/brain-games"],
+    "description": "Simply CLI games",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Roman Kozlov",
+            "email": "rkozlov95@mail.ru"
+        }
+    ],
+    "require": {}
+}
