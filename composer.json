@@ -2,6 +2,18 @@
     "name": "rkozlov95/php-brain-games",
     "bin": ["bin/brain-games"],
     "description": "Simply CLI games",
+    "scripts": {
+      "brain-games": "brain-games",
+      "phpcs": "phpcs"
+    },
+    "autoload": {
+      "files": [
+            "src/Cli.php"
+      ],
+      "psr-4": {
+        "BrainGames\\": "src/"
+      }
+    },
     "type": "project",
     "authors": [
         {
@@ -9,5 +21,10 @@
             "email": "rkozlov95@mail.ru"
         }
     ],
-    "require": {}
+    "require": {
+        "wp-cli/php-cli-tools": "^0.11.11"
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "*"
+    }
 }
