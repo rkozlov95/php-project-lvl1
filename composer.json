@@ -15,6 +15,7 @@
       }
     },
     "type": "project",
+    "license": "MIT",
     "authors": [
         {
             "name": "Roman Kozlov",
