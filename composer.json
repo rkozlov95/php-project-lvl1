@@ -1,6 +1,6 @@
 {
     "name": "rkozlov95/php-brain-games",
-    "bin": ["./bin/brain-even"],
+    "bin": ["bin/brain-even"],
     "description": "Simply CLI games",
     "minimum-stability": "stable",
     "scripts": {
