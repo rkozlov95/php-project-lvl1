@@ -2,6 +2,7 @@
     "name": "rkozlov95/php-brain-games",
     "bin": ["bin/brain-games"],
     "description": "Simply CLI games",
+    "minimum-stability": "stable",
     "scripts": {
       "brain-games": "brain-games",
       "phpcs": "phpcs"
