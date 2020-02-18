@@ -1,6 +1,0 @@
-#!/usr/bin/env php7.3
-<?php
-
-  require __DIR__ . '/../vendor/autoload.php';
-
-BrainGames\Cli\run();

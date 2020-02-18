@@ -2,12 +2,9 @@
 
 namespace BrainGames\Cli;
 
-  use function cli\line;
-  use function cli\prompt;
-
 function run()
 {
-    line('Welcome to the Brain Game!');
-    $name = prompt('dddd', false, ':', false);
-    /* line("Hello, %s!", $name); */
+    \cli\line('Welcome to the Brain Game!');
+    $name = \cli\prompt('dddd', false, ':', false);
+    \cli\line("Hello, %s!", $name);
 }
