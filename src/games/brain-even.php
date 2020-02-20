@@ -13,12 +13,6 @@ function isEven($num)
     return $num % 2 === 0;
 }
 
-$makeEvenGame = function () {
-    $question = getRandomNum(1, 100);
-    $answer = isEven($question) ? 'yes' : 'no';
-    return makePairQuestionAnswer($question, $answer);
-};
-
 function runGameEven()
 {
     $makeEvenGame = function () {
