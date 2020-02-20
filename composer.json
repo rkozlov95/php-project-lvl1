@@ -2,17 +2,18 @@
     "name": "rkozlov95/php-brain-games",
     "bin": ["bin/brain-even"],
     "description": "Simply CLI games",
-    "minimum-stability": "stable",
     "scripts": {
-      "brain-even": "brain-even",
+      "brain-even": ["bin/brain-even"],
       "phpcs": "phpcs"
     },
     "autoload": {
       "files": [
-            "src/Cli.php"
+            "src/Engine.php",
+            "src/games/brain-even.php"
       ],
       "psr-4": {
-        "BrainGames\\": "src/"
+        "BrainGames\\": "src/",
+        "BrainGames\\games\\": "src/games"
       }
     },
     "type": "library",
@@ -28,5 +29,7 @@
     },
     "require-dev": {
         "squizlabs/php_codesniffer": "*"
-    }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
