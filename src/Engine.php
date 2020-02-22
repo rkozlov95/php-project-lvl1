@@ -2,6 +2,8 @@
 
 namespace BrainGames\Engine;
 
+use function BrainGames\Utils\getAnswer;
+use function BrainGames\Utils\getQuestion;
 use function cli\line;
 use function cli\prompt;
 
@@ -12,21 +14,6 @@ function ask($question)
     return prompt($question);
 }
 
-function makePairQuestionAnswer($question, $answer)
-{
-    return [$question, $answer];
-}
-
-function getQuestion($pair)
-{
-    return $pair[0];
-}
-
-function getAnswer($pair)
-{
-    return $pair[1];
-}
-
 function playGame($description, $getDataGame)
 {
     line('Welcome to the Brain Game!');
@@ -35,7 +22,7 @@ function playGame($description, $getDataGame)
     line("Hello, %s!", $userName);
     $playRound = function ($counter) use (&$playRound, $getDataGame, $userName) {
         if ($counter <= 0) {
-            line("Congratulations, %s", $userName);
+            line("Congratulations, %s!", $userName);
             return;
         }
         $gameData = $getDataGame();
@@ -43,7 +30,7 @@ function playGame($description, $getDataGame)
         $answer = getAnswer($gameData);
         line("Question: %s", $question);
         $userAnswer = ask("Your Answer");
-        if ($userAnswer === $answer) {
+        if ($userAnswer == $answer) {
             line("Correct!");
         } else {
             line("'%s' is wrong answer ;(. Correct answer was '%s'.", $userAnswer, $answer);
@@ -53,9 +40,4 @@ function playGame($description, $getDataGame)
         return $playRound($counter - 1);
     };
     return $playRound(ITERATIONS_COUNT);
-}
-
-function getRandomNum()
-{
-    return rand(1, 100);
 }

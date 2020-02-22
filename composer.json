@@ -1,22 +1,29 @@
 {
     "name": "rkozlov95/php-brain-games",
-    "bin": ["bin/brain-even"],
+    "bin": [
+      "bin/brain-even",
+      "bin/brain-calc",
+      "bin/brain-gcd",
+      "bin/brain-prime",
+      "bin/brain-progression"
+    ],
+    "type" : "project",
     "description": "Simply CLI games",
+    "keywords": ["php", "brain-games", "CLI games", "games"],
     "scripts": {
-      "brain-even": ["bin/brain-even"],
       "phpcs": "phpcs"
     },
     "autoload": {
       "files": [
+            "src/games/Calc.php",
+            "src/games/Gcd.php",
+            "src/games/Prime.php",
+            "src/games/Progression.php",
+            "src/games/Even.php",
             "src/Engine.php",
-            "src/games/Even.php"
-      ],
-      "psr-4": {
-        "BrainGames\\": "src/",
-        "BrainGames\\games\\": "src/games"
-      }
+            "src/Utils.php"
+      ]
     },
-    "type": "library",
     "license": "MIT",
     "authors": [
         {
@@ -29,7 +36,5 @@
     },
     "require-dev": {
         "squizlabs/php_codesniffer": "*"
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true
+    }
 }
