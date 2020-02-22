@@ -48,6 +48,7 @@ function playGame($description, $getDataGame)
         } else {
             line("'%s' is wrong answer ;(. Correct answer was '%s'.", $userAnswer, $answer);
             line("Let's try again, %s", $userName);
+            return;
         }
         return $playRound($counter - 1);
     };

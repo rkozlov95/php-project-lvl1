@@ -9,7 +9,7 @@
     "autoload": {
       "files": [
             "src/Engine.php",
-            "src/games/brain-even.php"
+            "src/games/Even.php"
       ],
       "psr-4": {
         "BrainGames\\": "src/",
