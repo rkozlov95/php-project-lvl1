@@ -7,7 +7,6 @@
       "bin/brain-prime",
       "bin/brain-progression"
     ],
-    "type" : "project",
     "description": "Simply CLI games",
     "keywords": ["php", "brain-games", "CLI games", "games"],
     "scripts": {
