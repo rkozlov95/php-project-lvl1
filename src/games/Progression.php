@@ -1,18 +1,16 @@
 <?php
 
-namespace BrainGames\games;
+namespace RK95\BrainGames\games;
 
-use function BrainGames\Engine\playGame;
-use function BrainGames\Utils\makePairQuestionAnswer;
+use function RK95\BrainGames\Engine\playGame;
 
-const PROGRESSION_DESC = 'What number is missing in the progression?';
+const PROGRESSION_DESCRIPTION = 'What number is missing in the progression?';
 
-function getProgression($initialValue, $progressionStep, $progressionSize)
+function getProgression($initialValue, $step, $length)
 {
-    $lastValue = ($progressionSize - 1) * $progressionStep + $initialValue;
-    return range($initialValue, $lastValue, $progressionStep);
+    $lastValue = ($length - 1) * $step + $initialValue;
+    return range($initialValue, $lastValue, $step);
 }
-
 
 function prepareQuestion($progression, $randomIndex)
 {
@@ -21,17 +19,17 @@ function prepareQuestion($progression, $randomIndex)
     return $question;
 }
 
-function runGameProgression()
+function progression()
 {
-    $makeGameProgression = function () {
-        $progressionStep = rand(1, 10);
+    $getQuestionAnswer = function () {
+        $step = rand(1, 10);
         $initialValue = rand(1, 10);
-        $progressionSize = 10;
-        $progression = getProgression($initialValue, $progressionStep, $progressionSize);
-        $randomIndex = rand(1, 10);
+        $length = 10;
+        $progression = getProgression($initialValue, $step, $length);
+        $randomIndex = rand(1, $length);
         $answer = $progression[$randomIndex];
         $question = prepareQuestion($progression, $randomIndex);
-        return makePairQuestionAnswer($question, $answer);
+        return [$question, $answer];
     };
-    return playGame(PROGRESSION_DESC, $makeGameProgression);
+    return playGame(PROGRESSION_DESCRIPTION, $getQuestionAnswer);
 }

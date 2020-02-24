@@ -1,20 +1,19 @@
 <?php
 
-namespace BrainGames\games;
+namespace RK95\BrainGames\games;
 
-use function BrainGames\Engine\playGame;
-use function BrainGames\Utils\makePairQuestionAnswer;
+use function RK95\BrainGames\Engine\playGame;
 
-const CALC_DESC = 'What is the result of the expression?';
+const CALC_DESCRIPTION = 'What is the result of the expression?';
+const SIGNS = ['+', '-', '*'];
 
 function getRandomSign()
 {
-    $signs = ['+', '-', '*'];
-    $randomIndex = array_rand($signs);
-    return $signs[$randomIndex];
+    $randomIndex = array_rand(SIGNS);
+    return SIGNS[$randomIndex];
 }
 
-function getTrueAnswer($firstNum, $sign, $secondNum)
+function calculate($sign, $firstNum, $secondNum)
 {
     switch ($sign) {
         case '-':
@@ -27,15 +26,15 @@ function getTrueAnswer($firstNum, $sign, $secondNum)
     return false;
 }
 
-function runGameCalc()
+function calc()
 {
-    $makeGameCalc = function () {
+    $getQuestionAnswer = function () {
         $firstNum = rand(1, 100);
         $secondNum = rand(1, 100);
         $sign = getRandomSign();
         $question = "{$firstNum} {$sign} {$secondNum}";
-        $answer = getTrueAnswer($firstNum, $sign, $secondNum);
-        return makePairQuestionAnswer($question, $answer);
+        $answer = calculate($sign, $firstNum, $secondNum);
+        return [$question, $answer];
     };
-    return playGame(CALC_DESC, $makeGameCalc);
+    return playGame(CALC_DESCRIPTION, $getQuestionAnswer);
 }

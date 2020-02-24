@@ -1,11 +1,10 @@
 <?php
 
-namespace BrainGames\games;
+namespace RK95\BrainGames\games;
 
-use function BrainGames\Engine\playGame;
-use function BrainGames\Utils\makePairQuestionAnswer;
+use function RK95\BrainGames\Engine\playGame;
 
-const GCD_DESC = 'Find the greatest common divisor of given numbers.';
+const GCD_DESCRIPTION = 'Find the greatest common divisor of given numbers.';
 
 function getNode($firstNum, $secondNum)
 {
@@ -19,14 +18,14 @@ function getNode($firstNum, $secondNum)
     return $firstNum;
 }
 
-function runGameGcd()
+function gcd()
 {
-    $makeGameGcd = function () {
+    $getQuestionAnswer = function () {
         $firstNum = rand(1, 100);
         $secondNum = rand(1, 100);
         $question = "{$firstNum} {$secondNum}";
         $answer = getNode($firstNum, $secondNum);
-        return makePairQuestionAnswer($question, $answer);
+        return [$question, $answer];
     };
-    return playGame(GCD_DESC, $makeGameGcd);
+    return playGame(GCD_DESCRIPTION, $getQuestionAnswer);
 }

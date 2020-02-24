@@ -1,18 +1,17 @@
 <?php
 
-namespace BrainGames\games;
+namespace RK95\BrainGames\games;
 
-use function BrainGames\Engine\playGame;
-use function BrainGames\Utils\makePairQuestionAnswer;
+use function RK95\BrainGames\Engine\playGame;
 
-const PRIME_DESC = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+const PRIME_DESCRIPTION = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
-function isSimple($num)
+function isPrime($num)
 {
     if ($num < 2) {
         return false;
     }
-    for ($i = 2; $i < $num; $i++) {
+    for ($i = 2; $i <= sqrt($num); $i++) {
         if ($num % $i === 0) {
             return false;
         }
@@ -20,13 +19,12 @@ function isSimple($num)
     return true;
 }
 
-function runGamePrime()
+function prime()
 {
-    $makeGamePrime = function () {
-        $num = rand(1, 100);
-        $question = $num;
-        $answer = (isSimple($num)) ? 'yes' : 'no';
-        return makePairQuestionAnswer($question, $answer);
+    $getQuestionAnswer = function () {
+        $question = rand(1, 100);
+        $answer = (isPrime($question)) ? 'yes' : 'no';
+        return [$question, $answer];
     };
-    return playGame(PRIME_DESC, $makeGamePrime);
+    return playGame(PRIME_DESCRIPTION, $getQuestionAnswer);
 }

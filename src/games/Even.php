@@ -1,24 +1,22 @@
 <?php
 
-namespace BrainGames\games;
+namespace RK95\BrainGames\games;
 
-use function BrainGames\Engine\playGame;
-use function BrainGames\Utils\makePairQuestionAnswer;
+use function RK95\BrainGames\Engine\playGame;
 
-const EVEN_DESC = 'Answer "yes" if the number is even, otherwise answer "no".';
+const EVEN_DESCRIPTION = 'Answer "yes" if the number is even, otherwise answer "no".';
 
 function isEven($num)
 {
     return $num % 2 === 0;
 }
 
-function runGameEven()
+function even()
 {
-    $makeEvenGame = function () {
+    $getQuestionAnswer = function () {
         $question = rand(1, 100);
         $answer = isEven($question) ? 'yes' : 'no';
-        return makePairQuestionAnswer($question, $answer);
+        return [$question, $answer];
     };
-
-    return playGame(EVEN_DESC, $makeEvenGame);
+    return playGame(EVEN_DESCRIPTION, $getQuestionAnswer);
 }

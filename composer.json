@@ -1,26 +1,25 @@
 {
     "name": "rkozlov95/php-brain-games",
     "bin": [
-      "bin/brain-even",
-      "bin/brain-calc",
-      "bin/brain-gcd",
-      "bin/brain-prime",
-      "bin/brain-progression"
+        "bin/brain-even",
+        "bin/brain-calc",
+        "bin/brain-gcd",
+        "bin/brain-prime",
+        "bin/brain-progression"
     ],
     "description": "Simply CLI games",
     "keywords": ["php", "brain-games", "CLI games", "games"],
     "scripts": {
-      "phpcs": "phpcs"
+        "phpcs": "phpcs"
     },
     "autoload": {
       "files": [
-            "src/games/Calc.php",
-            "src/games/Gcd.php",
-            "src/games/Prime.php",
-            "src/games/Progression.php",
-            "src/games/Even.php",
-            "src/Engine.php",
-            "src/Utils.php"
+          "src/games/Calc.php",
+          "src/games/Gcd.php",
+          "src/games/Prime.php",
+          "src/games/Progression.php",
+          "src/games/Even.php",
+          "src/Engine.php"
       ]
     },
     "license": "MIT",
