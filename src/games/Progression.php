@@ -26,7 +26,7 @@ function progression()
         $initialValue = rand(1, 10);
         $length = 10;
         $progression = getProgression($initialValue, $step, $length);
-        $randomIndex = rand(1, $length);
+        $randomIndex = rand(0, $length - 1);
         $answer = $progression[$randomIndex];
         $question = prepareQuestion($progression, $randomIndex);
         return [$question, $answer];
