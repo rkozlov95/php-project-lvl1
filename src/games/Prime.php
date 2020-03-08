@@ -23,7 +23,7 @@ function prime()
 {
     $getQuestionAnswer = function () {
         $question = rand(1, 100);
-        $answer = (isPrime($question)) ? 'yes' : 'no';
+        $answer = isPrime($question) ? 'yes' : 'no';
         return [$question, $answer];
     };
     return playGame(PRIME_DESCRIPTION, $getQuestionAnswer);

@@ -6,16 +6,18 @@ use function RK95\BrainGames\Engine\playGame;
 
 const GCD_DESCRIPTION = 'Find the greatest common divisor of given numbers.';
 
-function getNode($firstNum, $secondNum)
+function getGcd($firstNum, $secondNum)
 {
-    while ($firstNum !== $secondNum) {
-        if ($firstNum > $secondNum) {
-            $firstNum = $firstNum - $secondNum;
+    $num1 = $firstNum;
+    $num2 = $secondNum;
+    while ($num1 !== $num2) {
+        if ($num1 > $num2) {
+            $num1 = $num1 - $num2;
         } else {
-            $secondNum = $secondNum - $firstNum;
+            $num2 = $num2 - $num1;
         }
     }
-    return $firstNum;
+    return $num1;
 }
 
 function gcd()
@@ -24,7 +26,7 @@ function gcd()
         $firstNum = rand(1, 100);
         $secondNum = rand(1, 100);
         $question = "{$firstNum} {$secondNum}";
-        $answer = getNode($firstNum, $secondNum);
+        $answer = getGcd($firstNum, $secondNum);
         return [$question, $answer];
     };
     return playGame(GCD_DESCRIPTION, $getQuestionAnswer);
